@@ -179,14 +179,14 @@ ALTER TABLE clientes ALTER COLUMN cpf TYPE int USING cpf::int;
 
 ALTER TABLE produtos ALTER COLUMN estoque TYPE varchar(10) USING estoque::varchar;
 
-CREATE USER helena WITH PASSWORD 'senha_segura';
+CREATE USER helena WITH PASSWORD 'heleninha';
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO helena;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO helena;
 
-CREATE USER colega WITH PASSWORD 'senha_segura_colega';
+CREATE USER helena WITH PASSWORD 'heleninhaa';
 
-GRANT SELECT ON TABLE clientes TO colega;
+GRANT SELECT ON TABLE clientes TO helena;
 
 
 SELECT * FROM clientes WHERE nome ILIKE '%a%';
@@ -209,6 +209,7 @@ SELECT c.nome, v.valor_total FROM clientes c RIGHT JOIN vendas v ON c.id = v.id_
 
 UPDATE vendas SET data_venda = CURRENT_DATE WHERE data_venda IS NULL;
 SELECT c.nome, v.valor_total FROM clientes c LEFT JOIN vendas v ON c.id = v.id_cliente;
+
 
 
 
